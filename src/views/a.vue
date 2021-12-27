@@ -1,19 +1,21 @@
 <template>
   <div class="hello">
-    {{state.msgG}}
     {{msg}}
-
+    {{count}}
     <button @click="add">add</button>
   </div>
 </template>
 
 <script lang="ts" setup>
-  import { toRefs } from "vue";
+  import { toRefs,computed } from "vue";
   import useEffect from "@/hooks/useEffect";
   import { useCounterStore } from '@/store/counter'
   import { useRouter } from 'vue-router'
 
   const state = useCounterStore()
+  const msg= computed(()=>state.msg)
+  const count= computed(()=>state.count)
+
   const data = toRefs(state)
   const route = useRouter()
 
@@ -23,12 +25,12 @@
 
   const add = ()=>{
     state.increment()
-    route.push({
-      path:"/b",
-      query:{
-        id:666
-      }
-    });
+    // route.push({
+    //   path:"/b",
+    //   query:{
+    //     id:666
+    //   }
+    // });
   }
 </script>
 

@@ -24,13 +24,7 @@ export const useCounterStore = defineStore('counter', {
     // could also be defined as
     // state: () => ({ count: 0 })
     getters:{
-      namelength(state){
-          return state.name.length
-      },
-      cc(state){
-          return state.count
-      },
-      msgG: state => state.msg,
+
     },
     actions: {
         increment() {
@@ -41,7 +35,6 @@ export const useCounterStore = defineStore('counter', {
             apis.post('dancife/login',{phone:18658771300,password:1}).then((res:any)=>{
                 if(res){
                     this.msg = res.msg
-                    console.log(res.msg)
                 }
             })
 
