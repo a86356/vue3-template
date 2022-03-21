@@ -5,21 +5,17 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs,defineEmits } from "vue";
+import {toRefs} from "vue";
 import useEffect from "@/hooks/useEffect";
 import { useCounterStore } from '@/store/counter'
 import { useRouter } from 'vue-router'
 
+
+
 const state = useCounterStore()
 const data = toRefs(state)
 const route = useRouter()
-// expects emits options
-const emit = defineEmits(['update', 'delete'])
 
-const mm = ()=>{
-  console.log(new Date())
-  emit("update",{a:111})
-}
 
 useEffect(()=>{
   state.getAsync()

@@ -1,22 +1,17 @@
 import axios from "./axios";
 
-
-export interface response{
-  list:[];
-  msg:[];
+export interface response {
+  list: [];
+  msg: [];
 }
 
 const api = {
-  // get post put delete => restful api
-
-  post: (url:string,data:any) => {
+  post: (url: string, data: any) => {
     return axios.post(url, data);
   },
-  senccode:(phone:string)=>{
-    return axios.post('common/sendcode',{phone:phone})
-  }
+  senccode: (phone: string) => {
+    return axios.post("common/sendcode", { phone: phone });
+  },
 };
 
-export default api
-
-
+export default api;
